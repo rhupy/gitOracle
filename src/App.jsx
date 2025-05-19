@@ -11,6 +11,7 @@ function App() {
   const handleSelectDDL = async () => {
     const file = await window.electronAPI.selectDDLFile();
     if (file) setDdlPath(file);
+    else setDdlPath("");
   };
 
   // git 명령 실행
@@ -32,7 +33,7 @@ function App() {
   return (
     <div className="app-container">
       <h2>DDL Git 형상관리</h2>
-      <button onClick={handleSelectDDL}>DDL 파일 선택</button>
+      <button onClick={handleSelectDDL}>DDL 파일 선택 (자동 복사)</button>
       <span style={{ marginLeft: 10 }}>{ddlPath}</span>
       <div style={{ marginTop: 20 }}>
         <input
